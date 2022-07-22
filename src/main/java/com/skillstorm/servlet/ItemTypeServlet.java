@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JSR310Module;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.skillstorm.dao.ItemTypeDao;
 import com.skillstorm.model.ItemType;
 import com.skillstorm.model.NotFound;
@@ -26,7 +27,7 @@ public class ItemTypeServlet extends HttpServlet {
 	
 	@Override
 	public void init() throws ServletException {
-		objectMapper.registerModule(new JSR310Module());
+		objectMapper.registerModule(new JavaTimeModule());
 		objectMapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
 	}
 	
